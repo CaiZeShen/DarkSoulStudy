@@ -262,8 +262,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.11256362, y: 0.0110266805, z: -0.001248993, w: -0.9935826}
+  m_LocalPosition: {x: 0.24609919, y: 2.3086503, z: -4.0157785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -334,6 +334,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f9d958fbcd96e44ca35a77a15e3187a, type: 3}
+--- !u!1 &881648165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100138, guid: 2f9d958fbcd96e44ca35a77a15e3187a,
+    type: 3}
+  m_PrefabInstance: {fileID: 823666842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &881648167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881648165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133011f0647900b43916091a88f3ac6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1261001054
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +363,7 @@ GameObject:
   - component: {fileID: 1261001059}
   - component: {fileID: 1261001056}
   - component: {fileID: 1261001055}
+  - component: {fileID: 1261001057}
   m_Layer: 0
   m_Name: PlayerHandle
   m_TagString: Untagged
@@ -371,6 +390,8 @@ MonoBehaviour:
   keyRight: d
   dUp: 0
   dRight: 0
+  dMag: 0
+  dVec: {x: 0, y: 0, z: 0}
 --- !u!136 &1261001056
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -385,6 +406,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1261001057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261001054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cddf50cb12bb54f9da3904830ce84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Modle: {fileID: 881648165}
 --- !u!4 &1261001059
 Transform:
   m_ObjectHideFlags: 0

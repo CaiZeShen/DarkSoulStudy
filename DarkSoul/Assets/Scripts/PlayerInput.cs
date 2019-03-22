@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour {
 
     public float dUp;
     public float dRight;
+    public float dMag;
+    public Vector3 dVec;
 
     private float m_TargetDUp;
     private float m_VelocityDUp;
@@ -32,5 +34,8 @@ public class PlayerInput : MonoBehaviour {
 
         dUp = Mathf.SmoothDamp(dUp, m_TargetDUp, ref m_VelocityDUp, 0.1f);
         dRight = Mathf.SmoothDamp(dRight, m_TargetDRight, ref m_VelocityDRight, 0.1f);
+
+        dMag = Mathf.Sqrt(dUp * dUp + dRight * dRight);
+        dVec = dUp * transform.forward + dRight * transform.right;
     }
 }
