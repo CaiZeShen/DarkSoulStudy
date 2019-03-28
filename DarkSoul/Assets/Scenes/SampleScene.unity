@@ -389,7 +389,7 @@ MonoBehaviour:
   keyLeft: a
   keyRight: d
   keyA: left shift
-  keyB: 
+  keyB: j
   keyC: 
   keyD: 
   dUp: 0
@@ -397,6 +397,7 @@ MonoBehaviour:
   dMag: 0
   dVec: {x: 0, y: 0, z: 0}
   run: 0
+  jump: 0
   inputEnble: 1
 --- !u!136 &1261001056
 CapsuleCollider:

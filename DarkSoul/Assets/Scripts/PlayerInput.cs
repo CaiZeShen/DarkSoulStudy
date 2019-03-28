@@ -19,6 +19,8 @@ public class PlayerInput : MonoBehaviour {
     public float dMag;
     public Vector3 dVec;
     public bool run;
+    public bool jump;
+    private bool m_LastJump;
 
     [Header("===== 其他 =====")]
     public bool inputEnble;
@@ -43,9 +45,31 @@ public class PlayerInput : MonoBehaviour {
         dUp = Mathf.SmoothDamp(dUp, m_TargetDUp, ref m_VelocityDUp, 0.1f);
         dRight = Mathf.SmoothDamp(dRight, m_TargetDRight, ref m_VelocityDRight, 0.1f);
 
-        dMag = Mathf.Sqrt(dUp * dUp + dRight * dRight);
-        dVec = dUp * transform.forward + dRight * transform.right;
+        Vector2 tmp = Square2Circle(new Vector2(dRight, dUp));
+        float dUp2 = tmp.y;
+        float dRight2 = tmp.x;
+
+        dMag = Mathf.Sqrt(dUp2 * dUp2 + dRight2 * dRight2);
+        dVec = dUp2 * transform.forward + dRight2 * transform.right;
 
         run = Input.GetKey(keyA);
+
+        bool newJump = Input.GetKey(keyB);
+        if (newJump != m_LastJump && newJump) {
+            jump = true;
+        } else {
+            jump = false;
+        }
+        m_LastJump = newJump;
+
+    }
+
+    Vector2 Square2Circle(Vector2 input) {
+        Vector2 output = Vector2.zero;
+
+        output.x = input.x * Mathf.Sqrt(1 - (input.y * input.y) / 2f);
+        output.y = input.y * Mathf.Sqrt(1 - (input.x * input.x) / 2f);
+
+        return output;
     }
 }

@@ -22,13 +22,19 @@ public class ActorCtrl : MonoBehaviour {
     }
 
     void Update() {
-        m_Animator.SetFloat("forward", m_PInput.dMag * (m_PInput.run ? 2 : 1));
+
+        m_Animator.SetFloat("forward", m_PInput.dMag *  Mathf.Lerp(m_Animator.GetFloat("forward"), (m_PInput.run ? 2 : 1),0.5f) );
 
         // 设置旋转
         if (m_PInput.dMag > 0.1f) 
-            m_Modle.transform.forward = m_PInput.dVec ;
+            m_Modle.transform.forward =Vector3.Slerp(m_Modle.transform.forward, m_PInput.dVec,0.3f)  ;
 
+        // 计算移动速度
         m_MovingVec = m_Modle.transform.forward * m_PInput.dMag * moveSpeed * (m_PInput.run ? runMultiplier : 1);
+
+        if (m_PInput.jump) {
+            m_Animator.SetTrigger("jump");
+        }
     }
 
     private void FixedUpdate() {
