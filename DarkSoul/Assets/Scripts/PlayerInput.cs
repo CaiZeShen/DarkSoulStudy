@@ -18,7 +18,9 @@ public class PlayerInput : MonoBehaviour {
     public float dRight;
     public float dMag;
     public Vector3 dVec;
+    // 持续的信号
     public bool run;
+    // 一次的信号
     public bool jump;
     private bool m_LastJump;
 

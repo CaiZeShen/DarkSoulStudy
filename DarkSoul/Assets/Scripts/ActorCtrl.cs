@@ -42,4 +42,11 @@ public class ActorCtrl : MonoBehaviour {
         m_Rigidbody.velocity = new Vector3(m_MovingVec.x, m_Rigidbody.velocity.y, m_MovingVec.z) ;
     }
 
+    public void OnJumpEnter() {
+        Debug.Log("OnJumpEnter");
+    }
+
+    public void OnJumpExit() {
+        Debug.Log("OnJumpExit");
+    }
 }
